@@ -10,6 +10,16 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber(int nume, int deno){
     super(0.0);//this value is ignored! 
+    if (deno == 0) {
+      this.numerator = 0;
+      this.denominator = 1;
+    } else if(deno < 0){
+      this.numerator = -1 * nume;
+      this.denominator = -1 * deno;
+    } else {
+      this.numerator = nume;
+      this.denominator = deno;
+    }
   }
 
   public double getValue(){
@@ -20,20 +30,20 @@ public class RationalNumber extends RealNumber
   *@return the numerator
   */
   public int getNumerator(){
-    return 0;
+    return this.numerator;
   }
   /**
   *@return the denominator
   */
   public int getDenominator(){
-    return 0;
+    return this.denominator;
   }
   /**
   *@return a new RationalNumber that has the same numerator
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return null;
+    return RationalNumber(this.denominator, this.numerator);
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.

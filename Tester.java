@@ -1,5 +1,9 @@
 public class Tester {
     public static void main(String[] args) {
+        realTests();
+    }
+
+    public static void realTests() {
         RealNumber n0 = new RealNumber(0);
         RealNumber n1 = new RealNumber(0.000001);
         RealNumber n2 = new RealNumber(100000);
@@ -20,7 +24,18 @@ public class Tester {
         System.out.println(add0);
 
         System.out.println("Multiply test:");
-        RealNumber multiply0 = n2.multiply(n1);
+        RealNumber multiply0 = n2.multiply(n4);
         System.out.println(multiply0);
+
+        System.out.println("Divide test:");
+        RealNumber divide0 = n4.divide(n1);
+        System.out.println(divide0);
+
+        System.out.println("Subtract test:");
+        RealNumber subtract0 = n4.subtract(n1);
+        System.out.println(subtract0);
+    }
+    public static void rationalTests() {
+        
     }
 }
