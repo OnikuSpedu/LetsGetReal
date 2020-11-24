@@ -37,10 +37,16 @@ public class Tester {
         System.out.println(subtract0);
     }
     public static void rationalTests() {
-        RationalNumber n0 = new RationalNumber(10, 2);
+        RationalNumber n0 = new RationalNumber(-10, -2);
         RationalNumber n1 = new RationalNumber(2, 10);
         RationalNumber n2 = new RationalNumber(1, 2);
+        RationalNumber n3 = new RationalNumber(3, 2);
+        System.out.println(n0);
         System.out.println(n0.multiply(n1));
         System.out.println(n0.divide(n2));
+        System.out.println(n2.add(n2));
+        System.out.println(n2.add(n3));
+        System.out.println(n2.subtract(n2));
+        System.out.println(n2.subtract(n3));
     }
 }

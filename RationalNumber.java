@@ -13,10 +13,12 @@ public class RationalNumber extends RealNumber
     if (deno == 0) {
       this.numerator = 0;
       this.denominator = 1;
-    } else if(deno < 0){
+    } 
+    else if(deno < 0){
       this.numerator = -1 * nume;
-      this.denominator = -1 * deno;
-    } else {
+      this.denominator = -1 * deno; 
+    } 
+    else {
       this.numerator = nume;
       this.denominator = deno;
     }
@@ -60,7 +62,7 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
-    return this.numerator + "/" + this.denominator;
+    return "" + this.numerator + "/" + this.denominator;
   }
 
   /**Calculate the GCD of two integers.
@@ -71,6 +73,7 @@ public class RationalNumber extends RealNumber
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
     http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
+    if (a == 0 || b == 0) return 1;
     if (a < b) {
       int temp = a;
       a = b;
@@ -90,9 +93,13 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-    int gcf = gcd(this.numerator, this.numerator);
+    int gcf = gcd(this.numerator, this.denominator);
     this.numerator = this.numerator/gcf;
     this.denominator = this.denominator/gcf;
+    if (this.denominator < 0) {
+      this.numerator = this.numerator * -1;
+      this.denominator = this.denominator * -1;
+    }
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
@@ -100,9 +107,9 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber multiply(RationalNumber other){
     int nume = this.numerator * other.getNumerator();
-    int denu = this.denominator * other.getDenominator();
-    int gcf = gcd(nume, denu);
-    RationalNumber res = new RationalNumber(nume / gcf, denu / gcf);
+    int deno = this.denominator * other.getDenominator();
+    RationalNumber res = new RationalNumber(nume, deno);
+    res.reduce();
     return res;
   }
 
@@ -118,12 +125,24 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    int otherNum = other.getNumerator();
+    int otherDen = other.getDenominator();
+    int nume = (this.numerator*otherDen) + (otherNum * this.denominator);
+    int deno = this.denominator * otherDen;
+    RationalNumber res = new RationalNumber(nume, deno);
+    res.reduce();
+    return res;
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    int otherNum = other.getNumerator();
+    int otherDen = other.getDenominator();
+    int nume = (this.numerator*otherDen) - (otherNum * this.denominator);
+    int deno = this.denominator * otherDen;
+    RationalNumber res = new RationalNumber(nume, deno);
+    res.reduce();
+    return res;
   }
 } 
