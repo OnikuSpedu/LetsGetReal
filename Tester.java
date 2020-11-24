@@ -1,6 +1,7 @@
 public class Tester {
     public static void main(String[] args) {
         realTests();
+        rationalTests();
     }
 
     public static void realTests() {
@@ -36,6 +37,9 @@ public class Tester {
         System.out.println(subtract0);
     }
     public static void rationalTests() {
-        
+        RationalNumber n0 = new RationalNumber(10, 2);
+        RationalNumber n1 = new RationalNumber(2, 10);
+        System.out.println(n0.multiply(n1));
     }
+    
 }

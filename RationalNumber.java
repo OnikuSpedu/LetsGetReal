@@ -43,7 +43,7 @@ public class RationalNumber extends RealNumber
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return RationalNumber(this.denominator, this.numerator);
+    return new RationalNumber(this.denominator, this.numerator);
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
@@ -71,7 +71,17 @@ public class RationalNumber extends RealNumber
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
     http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    if (a < b) {
+      int temp = a;
+      a = b;
+      b = temp;
+    }
+    while(a % b != 0) {
+      int r = a % b;
+      a = b;
+      b = r;
+    }
+    return b;
   }
 
   /**
@@ -80,14 +90,20 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    int gcf = gcd(this.numerator, this.numerator);
+    this.numerator = this.numerator/gcf;
+    this.denominator = this.denominator/gcf;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    int nume = this.numerator * other.getNumerator();
+    int denu = this.denominator * other.getDenominator();
+    int gcf = gcd(nume, denu);
+    RationalNumber res = new RationalNumber(nume / gcf, denu / gcf);
+    return res;
   }
 
   /**
