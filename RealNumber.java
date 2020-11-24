@@ -22,13 +22,14 @@ public class RealNumber{
       double otherValue = other.getValue();
       double differenceThis = Math.abs((otherValue - this.value) / this.value);
       double differenceOther = Math.abs((this.value - otherValue) / otherValue);
-      if ((this.value == 0 && otherValue != 0) || (this.value != 0 && otherValue == 0)) {
-        return false;
+      if (this.value == 0) {
+        if(otherValue == 0) return true;
+        else return false;
       }
-      if (differenceThis > (0.001 / 100) && differenceOther > (0.001 / 100)) {
-        return false;
+      if (differenceThis <= (0.001 / 100) && differenceOther <= (0.001 / 100)) {
+        return true;
       }
-      return true;
+      return false;
     }
   
     /*

@@ -9,23 +9,20 @@ public class RationalNumber extends RealNumber
   *@param deno the denominator
   */
   public RationalNumber(int nume, int deno){
-    super(0.0);//this value is ignored! 
+    super(0.0);
     if (deno == 0) {
       this.numerator = 0;
       this.denominator = 1;
-    } 
-    else if(deno < 0){
-      this.numerator = -1 * nume;
-      this.denominator = -1 * deno; 
     } 
     else {
       this.numerator = nume;
       this.denominator = deno;
     }
+    reduce();
   }
-
+  @Override
   public double getValue(){
-    return 0.0;
+    return (double) this.numerator /  this.denominator;
   }
 
   /**
@@ -99,6 +96,8 @@ public class RationalNumber extends RealNumber
     if (this.denominator < 0) {
       this.numerator = this.numerator * -1;
       this.denominator = this.denominator * -1;
+    } if (this.numerator == 0) {
+      this.denominator = 1;
     }
   }
   /******************Operations Return a new RationalNumber!!!!****************/
@@ -145,4 +144,5 @@ public class RationalNumber extends RealNumber
     res.reduce();
     return res;
   }
+
 } 
