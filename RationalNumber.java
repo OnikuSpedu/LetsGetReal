@@ -47,7 +47,8 @@ public class RationalNumber extends Number
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    if (this.numerator == other.getNumerator() && this.denominator == other.getDenominator()) {
+    if (this.numerator == 0 && other.getNumerator() == 0) return true;
+    else if (this.numerator == other.getNumerator() && this.denominator == other.getDenominator()) {
       return true;
     }
     return false;
