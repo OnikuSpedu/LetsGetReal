@@ -9,7 +9,6 @@ public class RationalNumber extends Number
   *@param deno the denominator
   */
   public RationalNumber(int nume, int deno){
-    super(0.0);
     if (deno == 0) {
       this.numerator = 0;
       this.denominator = 1;
@@ -60,8 +59,8 @@ public class RationalNumber extends Number
   */
   public String toString(){
     if (this.numerator == 0) return "0";
-    if (this.denominator == 1) return Integer.toString(this.denominator);
-    return "" + this.numerator + "/" + this.denominator;
+    if (this.denominator == 1) return Integer.toString(this.numerator);
+     return "" + this.numerator + "/" + this.denominator;
   }
 
   /**Calculate the GCD of two integers.

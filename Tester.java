@@ -1,5 +1,7 @@
 public class Tester {
     public static void main(String[] args) {
+        RationalNumber n0 = new RationalNumber(-10, -2);
+        System.out.println(n0);
         realTests();
         rationalTests();
     }
