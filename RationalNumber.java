@@ -1,4 +1,4 @@
-public class RationalNumber extends RealNumber
+public class RationalNumber extends Number
 {
   private int numerator, denominator;
 
@@ -20,7 +20,7 @@ public class RationalNumber extends RealNumber
     }
     reduce();
   }
-  @Override
+  
   public double getValue(){
     return (double) this.numerator /  this.denominator;
   }
@@ -59,6 +59,8 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
+    if (this.numerator == 0) return "0";
+    if (this.denominator == 1) return Integer.toString(this.denominator);
     return "" + this.numerator + "/" + this.denominator;
   }
 
@@ -96,9 +98,7 @@ public class RationalNumber extends RealNumber
     if (this.denominator < 0) {
       this.numerator = this.numerator * -1;
       this.denominator = this.denominator * -1;
-    } if (this.numerator == 0) {
-      this.denominator = 1;
-    }
+    } 
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
